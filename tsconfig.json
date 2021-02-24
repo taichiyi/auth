@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "module": "ES6",
+    "target": "ES5",
+    "strict": true,
+    "removeComments": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "allowJs": true
+  },
+  "inclue": "src",
+  "exclue": [
+    "node_modules",
+    "dist"
+  ]
+}

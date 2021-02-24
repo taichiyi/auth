@@ -1,0 +1,1 @@
+export { getGotenAuth } from './goten'
