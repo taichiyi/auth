@@ -21,7 +21,6 @@ export default {
   plugins: [
     typescript({
       tsconfig: 'tsconfig.json',
-      // removeComments: true,
       useTsconfigDeclarationDir: true,
     }),
   ],
