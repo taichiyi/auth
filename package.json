@@ -8,9 +8,7 @@
     "auth",
     "token"
   ],
-  "main": "dist/auth.js",
-  "module": "dist/auth.js",
-  "unpkg": "dist/auth.umd.js",
+  "main": "dist/auth.umd.js",
   "typings": "./dist/types/index.d.ts",
   "scripts": {
     "build": "rollup -c",

@@ -11,12 +11,6 @@ export default {
       sourcemap: true,
       plugins:[terser()],
     },
-    {
-      file: 'dist/auth.js',
-      format: 'esm',
-      sourcemap: true,
-      plugins:[terser()],
-    },
   ],
   plugins: [
     typescript({
