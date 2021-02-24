@@ -1,4 +1,5 @@
-import typescript from '@rollup/plugin-typescript';
+import { terser } from 'rollup-plugin-terser'
+import typescript from 'rollup-plugin-typescript2'
 
 export default {
   input: './src/index.ts',
@@ -7,15 +8,21 @@ export default {
       file: 'dist/auth.umd.js',
       format: 'umd',
       name: 'auth',
-      sourcemap: true
+      sourcemap: true,
+      plugins:[terser()],
     },
     {
       file: 'dist/auth.js',
       format: 'esm',
-      sourcemap: true
+      sourcemap: true,
+      plugins:[terser()],
     },
   ],
   plugins: [
-    typescript(),
+    typescript({
+      tsconfig: 'tsconfig.json',
+      // removeComments: true,
+      useTsconfigDeclarationDir: true,
+    }),
   ],
 };
