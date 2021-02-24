@@ -283,7 +283,8 @@ var hexToChar = new Array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
 function digitToHex(n)
 {
 	var mask = 0xf;
-	var result = "";
+  var result = "";
+  var i;
 	for (i = 0; i < 4; ++i) {
 		result += hexToChar[n & mask];
 		n >>>= 4;
@@ -459,7 +460,7 @@ function biMultiply(x, y)
 	for (var i = 0; i <= t; ++i) {
 		c = 0;
 		k = i;
-		for (j = 0; j <= n; ++j, ++k) {
+		for (var j = 0; j <= n; ++j, ++k) {
 			uv = result.digits[k] + x.digits[j] * y.digits[i] + c;
 			result.digits[k] = uv & maxDigitVal;
 			c = uv >>> biRadixBits;
@@ -476,7 +477,7 @@ function biMultiplyDigit(x, y)
 {
 	var n, c, uv;
 
-	result = new BigInt();
+	var result = new BigInt();
 	n = biHighIndex(x);
 	c = 0;
 	for (var j = 0; j <= n; ++j) {
@@ -902,7 +903,7 @@ function decryptedString(key, s)
 
 setMaxDigits(129);
 
-module.exports = {
+export {
   RSAKeyPair,
   encryptedString,
 }

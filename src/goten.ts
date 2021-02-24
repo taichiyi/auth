@@ -1,4 +1,6 @@
 import { requestPromise } from "./utils"
+import { RSAKeyPair, encryptedString } from './RSA.js';
+
 
 const getCookieObject = (cookieStr: string[]) => {
   const cookieObject: { [x: string]: string } = {};
@@ -54,7 +56,6 @@ export const getLoginInfo = async () => {
 export const getGotenAuth = async (accountName: string, password: string) => {
   const { cookieToken, inputToken, modulus } = await getLoginInfo()
 
-  const { RSAKeyPair, encryptedString } = require('./RSA.js');
   const key = new RSAKeyPair("010001", "", modulus);
   const HidPassword = encryptedString(key, password);
 
