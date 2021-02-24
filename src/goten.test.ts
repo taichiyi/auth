@@ -6,14 +6,14 @@ test('get goten info', async () => {
   let modulus = ''
   try {
     ({ cookieToken, inputToken, modulus } = await getLoginInfo());
-    console.log(cookieToken);
-    console.log(inputToken);
-    console.log(modulus);
+    console.log('cookieToken', cookieToken);
+    console.log('inputToken', inputToken);
+    console.log('modulus', modulus);
   } catch (error) {
     console.error(error);
   }
   expect(cookieToken.length > 0 && inputToken.length > 0).toBe(true)
-})
+}, 60 * 1000)
 
 test('get goten auth', async () => {
   // ✨换上自己的 goten 账号和密码✨
@@ -23,6 +23,6 @@ test('get goten auth', async () => {
     .catch(err => {
       console.error(err);
     })
-  console.log(auth);
+  console.log('auth', auth);
   expect(auth && auth.length > 0).toBe(true)
-})
+}, 60 * 1000)
