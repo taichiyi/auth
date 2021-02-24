@@ -4,13 +4,13 @@ export default {
   input: './src/index.ts',
   output: [
     {
-      file: 'dist/taichiyi-auth.umd.js',
+      file: 'dist/auth.umd.js',
       format: 'umd',
-      name: 'taichiyiAuth',
+      name: 'auth',
       sourcemap: true
     },
     {
-      file: 'dist/taichiyi-auth.js',
+      file: 'dist/auth.js',
       format: 'esm',
       sourcemap: true
     },
