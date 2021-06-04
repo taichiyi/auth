@@ -24,6 +24,10 @@ export const getGigaAuth = async (
         throw new Error('请求头[set-cookie] 错误')
       }
       const auth = getCookieObject(setCookie)['OCSESSID']
+      const loginFlag = getCookieObject(setCookie)['login_flag']
+      if (loginFlag !== '1') {
+        throw new Error('登录失败')
+      }
       if (!auth) {
         throw new Error('获取“OCSESSID”失败')
       }

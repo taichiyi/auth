@@ -12,7 +12,7 @@ export const requestPromise = (url: string, options?: CoreOptions) =>
   });
 
 export const getCookieObject = (cookieStr: string[]) => {
-  const cookieObject: { [x: string]: string } = {};
+  const cookieObject: { [x: string]: string|undefined } = {};
   const cookieList = cookieStr.map((val) => val.split('; ')[0]);
   cookieList.forEach((val) => {
     const valSplit = val.split('=');
