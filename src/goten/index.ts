@@ -1,17 +1,5 @@
-import { requestPromise } from "./utils"
-import { RSAKeyPair, encryptedString } from './RSA.js';
-
-
-const getCookieObject = (cookieStr: string[]) => {
-  const cookieObject: { [x: string]: string } = {};
-  const cookieList = cookieStr.map((val) => val.split('; ')[0]);
-  cookieList.forEach((val) => {
-    const valSplit = val.split('=');
-    const [key, value] = valSplit;
-    cookieObject[key] = value;
-  });
-  return cookieObject;
-}
+import { requestPromise, getCookieObject } from "../utils"
+import { RSAKeyPair, encryptedString } from "./RSA";
 
 export const getLoginInfo = async () => {
   let cookieToken = ''
@@ -58,10 +46,11 @@ export const getGotenAuth = async (accountName: string, password: string) => {
 
   const key = new RSAKeyPair("010001", "", modulus);
   const HidPassword = encryptedString(key, password);
+  const url = 'https://www.gotenchina.com/login.html'
 
   const options = {
     'method': 'POST',
-    'url': 'https://www.gotenchina.com/login.html',
+    'url': url,
     'timeout': 60 * 1000,
     'headers': {
       'cookie': cookieToken,
@@ -74,7 +63,7 @@ export const getGotenAuth = async (accountName: string, password: string) => {
       'HidPassword': HidPassword
     }
   };
-  return await requestPromise('https://www.gotenchina.com/login.html', options)
+  return await requestPromise(url, options)
     .then(response => {
       const setCookie = response.headers['set-cookie'];
       if (!setCookie) {

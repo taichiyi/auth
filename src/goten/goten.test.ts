@@ -1,4 +1,4 @@
-import { getLoginInfo, getGotenAuth } from "./goten";
+import { getLoginInfo, getGotenAuth } from ".";
 
 test('get goten info', async () => {
   let cookieToken = ''
