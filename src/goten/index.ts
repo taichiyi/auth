@@ -1,9 +1,11 @@
 import { requestPromise, getCookieObject } from "../utils"
 import { RSAKeyPair, encryptedString } from "./RSA";
 
+let host = 'www.gotenchina.com'
+
 export const getLoginInfo = async () => {
   let cookieToken = ''
-  return requestPromise('https://www.gotenchina.com/login.html')
+  return requestPromise(`https://${host}/login.html`)
     .then((response) => {
       const headersSetCookie = response.headers['set-cookie'];
       if (!headersSetCookie) {
@@ -41,12 +43,16 @@ export const getLoginInfo = async () => {
     })
 }
 
-export const getGotenAuth = async (accountName: string, password: string) => {
+export const getGotenAuth = async (accountName: string, password: string, newHost?: string) => {
+  if (newHost !== undefined) {
+    host = newHost
+  }
+
   const { cookieToken, inputToken, modulus } = await getLoginInfo()
 
   const key = new RSAKeyPair("010001", "", modulus);
   const HidPassword = encryptedString(key, password);
-  const url = 'https://www.gotenchina.com/login.html'
+  const url = `https://${host}/login.html`
 
   const options = {
     'method': 'POST',
