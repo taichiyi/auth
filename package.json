@@ -1,10 +1,12 @@
 {
   "name": "@taichi-yi/auth",
-  "version": "2.0.0",
-  "description": "自动获取“大健”和“冠通”的登录 token",
+  "version": "2.1.1",
+  "description": "自动获取“大健”和“冠通（赛盈）”的登录 token",
   "keywords": [
     "goten",
     "冠通",
+    "赛盈",
+    "saleyee",
     "giga",
     "大健云仓",
     "token",
