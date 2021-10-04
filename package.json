@@ -18,7 +18,8 @@
     "build": "rollup -c",
     "test": "jest --coverage",
     "test:giga": "jest giga/ --coverage",
-    "test:goten": "jest goten/ --coverage"
+    "test:goten": "jest goten/ --coverage",
+    "test:saleyee": "jest saleyee/ --coverage"
   },
   "repository": {
     "type": "git",

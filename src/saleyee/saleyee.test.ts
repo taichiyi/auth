@@ -1,11 +1,11 @@
-import { getLoginInfo, getGotenAuth } from ".";
+import { getSaleYeeLoginInfo, getSaleYeeAuth } from ".";
 
-test('get goten info', async () => {
+test('get saleyee info', async () => {
   let cookieToken = ''
   let inputToken = ''
   let modulus = ''
   try {
-    ({ cookieToken, inputToken, modulus } = await getLoginInfo());
+    ({ cookieToken, inputToken, modulus } = await getSaleYeeLoginInfo());
     console.log('cookieToken', cookieToken);
     console.log('inputToken', inputToken);
     console.log('modulus', modulus);
@@ -15,11 +15,11 @@ test('get goten info', async () => {
   expect(cookieToken.length > 0 && inputToken.length > 0).toBe(true)
 }, 60 * 1000)
 
-test('get goten auth', async () => {
-  // ✨换上自己的 goten 账号和密码✨
+test('get saleyee auth', async () => {
+  // ✨换上自己的 saleyee 账号和密码✨
   // 账号:18888888888
   // 密码:abcdefg
-  const auth = await getGotenAuth('18888888888', 'abcdefg')
+  const auth = await getSaleYeeAuth('18888888888', 'abcdefg')
     .catch((err: any) => {
       console.error(err);
     })
