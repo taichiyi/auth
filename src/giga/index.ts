@@ -4,7 +4,7 @@ export const getGigaAuth = async (
   email: string,
   password: string,
 ) => {
-  const url = 'https://b2b.gigacloudlogistics.com/index.php?route=account/login'
+  const url = 'https://www.gigab2b.com/index.php?route=account/login'
   const formData = {
     email,
     password,
@@ -21,7 +21,7 @@ export const getGigaAuth = async (
     .then(response => {
       const setCookie = response.headers['set-cookie'];
       if (!setCookie) {
-        throw new Error('请求头[set-cookie] 错误')
+        throw new Error('giga 请求头[set-cookie] 错误')
       }
       const auth = getCookieObject(setCookie)['OCSESSID']
       const loginFlag = getCookieObject(setCookie)['login_flag']

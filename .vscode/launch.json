@@ -12,5 +12,13 @@
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run-script", "test:saleyee"]
     },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "test:giga",
+      "cwd": "${workspaceFolder}",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run-script", "test:giga"]
+    },
   ]
 }
